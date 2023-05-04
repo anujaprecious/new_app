@@ -1,14 +1,15 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 function AboutPage() {
   return (
-    <div>
-      <h1>About</h1>
-      <h2>
+    <div >
+      <h1 >About</h1>
+      <h2 >
         If anyone wants to quickly understand your brand, your About Us page
         should be the single link you send them.
       </h2>
-      <p>
+      <p className="about_page">
         Communicate the story of your business and why you started it. Describe
         the customers or the cause that your business serves. Explain your
         business model or how your products are made. Put a face to your
@@ -30,8 +31,13 @@ function AboutPage() {
         writing process. Let’s explore the set-by-step guide to building your
         about page.
       </p>
+
       <img src="about-cover.png" alt="Example Image" />
+      <br /> <br />
+      <br /> <br />
+      <Link to="/"><button className="btn btn-primary">Home</button></Link>
     </div>
+
   );
 }
 export default AboutPage;

@@ -6,6 +6,9 @@ import {BrowserRouter,Routes,Route} from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
+import DashboardPage from "./pages/DashboardPage"
+import ProfilesettingPage from "./pages/ProfilesettingPage";
+
 function App() {
   return (
 <>
@@ -16,6 +19,8 @@ function App() {
     <Route exact path='/AboutPage' element={<AboutPage/>}></Route>
     <Route exact path='/SignupPage' element={<SignupPage/>}></Route>
     <Route exact path='/LoginPage' element={<LoginPage/>}></Route>
+    <Route exact path='/DashboardPage' element={<DashboardPage/>}></Route>
+    <Route exact path='/ProfilesettingPage' element={<ProfilesettingPage/>}></Route>
     </Routes>
     </BrowserRouter>
 
