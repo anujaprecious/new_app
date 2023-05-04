@@ -3,10 +3,10 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
 const SignupPage = () => {
-  const [name, setName] = useState("");
+ // const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [nameErr, setNameErr] = useState("");
+  //const [nameErr, setNameErr] = useState("");
   const [emailErr, setEmailErr] = useState("");
   const [passwordErr, setPasswordErr] = useState("");
   const history = useNavigate();
@@ -16,37 +16,40 @@ const SignupPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(name<1){
-      setNameErr("Name should not be blank")
-    }
+    // if(name<1){
+    //   setNameErr("Name should not be blank")
+    // }
     if(email===""){
       setEmailErr("Email should not be blank")
     }
     if(password===""){
       setPasswordErr("Password should not be blank")
     }
-    if(name!=="" && email!=="" && password!=="")
+    if( email!=="" && password!=="")
     {
+      alert("signed up successfully")
     console.log("clicked");
-    axios.post("https://644925ceb88a78a8f0ff1375.mockapi.io/crud-app", {
-      name: name,
+    axios.post("https://reqres.in/api/register", {
+
       email: email,
       password: password,
       header,
     })
     .then(()=>{
+      const token="QpwL5tke4Pnpja7X4";
+      localStorage.setItem('token',token);
       history("/LoginPage");
     });}
   };
 
-  const handleNameChange=(event)=>{
-    setName(event.target.value);
-    if(event.target.value==='')
-    setNameErr("please enter your name");
-    else{
-        setNameErr("");
-    }
-  }
+  // const handleNameChange=(event)=>{
+  //   setName(event.target.value);
+  //   if(event.target.value==='')
+  //   setNameErr("please enter your name");
+  //   else{
+  //       setNameErr("");
+  //   }
+  // }
   const handleEmailChange=(event)=>{
     setEmail(event.target.value);
     if(event.target.value==='')
@@ -78,9 +81,9 @@ const SignupPage = () => {
 
        </div>
 
-      <form className="mt-5 mx-auto"
-            style={{ maxWidth: "400px" }}>
-        <div className="mb-3">
+      <form className="mt-5 mx-auto shadow-lg p-3 mb-5  rounded"
+            style={{ maxWidth: "400px" }} >
+        {/* <div className="mb-3">
           <label className="form-label">Name</label>
           <input
             type="text"
@@ -88,7 +91,7 @@ const SignupPage = () => {
             onChange={handleNameChange}
           />
           {nameErr&&<span style={{color:'red'}}>{nameErr}</span>}
-        </div>
+        </div> */}
 
         <div className="mb-3">
           <label className="form-label">Email address</label>
