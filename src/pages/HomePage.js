@@ -49,6 +49,13 @@ function HomePage() {
                     </a>
                   </Link>
                 </li>
+                <li className="nav-item">
+                  <Link to="/ContactForm">
+                    <a className="navbar-brand" style={{ color: "white" }}>
+                      Contact
+                    </a>
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>

@@ -23,13 +23,16 @@ const SignupPage = () => {
       })
       .then((response) => {
         console.log(response.data);
+
         const token="QpwL5tke4Pnpja7X4";
         const value=localStorage.getItem('token');
         if(value===token){
-          alert("loged in successfully");
+          alert("logged in successfully");
+          localStorage.removeItem('token');
           history("/ProfilesettingPage");
-        }
-        else{
+
+        }else{
+
           alert("Enter valid information ");
         }
         // you can also store the token or any other user information returned by the API in the state or local storage
@@ -37,7 +40,7 @@ const SignupPage = () => {
 
 
 
-    
+
   };
 
   const handleEmailChange = (event) => {

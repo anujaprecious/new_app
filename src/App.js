@@ -8,6 +8,7 @@ import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import DashboardPage from "./pages/DashboardPage"
 import ProfilesettingPage from "./pages/ProfilesettingPage";
+import ContactForm from "./pages/ContactForm";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
     <Route exact path='/LoginPage' element={<LoginPage/>}></Route>
     <Route exact path='/DashboardPage' element={<DashboardPage/>}></Route>
     <Route exact path='/ProfilesettingPage' element={<ProfilesettingPage/>}></Route>
+    <Route exact path='/ContactForm' element={<ContactForm/>}></Route>
     </Routes>
     </BrowserRouter>
 

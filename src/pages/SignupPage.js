@@ -25,7 +25,7 @@ const SignupPage = () => {
     if(password===""){
       setPasswordErr("Password should not be blank")
     }
-    if( email!=="" && password!=="")
+    if(password!=="" && email!=="")
     {
       alert("signed up successfully")
     console.log("clicked");
@@ -77,7 +77,7 @@ const SignupPage = () => {
 
     }}>
     <div className="d-flex justify-content-between m-2">
-      <h1 className="mt-5 mx-auto">Welcome to Signup page</h1>
+      <h1 className="mt-5 mx-auto" style={{color:'white'}}>Welcome to Signup page</h1>
 
        </div>
 
