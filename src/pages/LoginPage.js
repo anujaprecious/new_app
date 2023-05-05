@@ -24,23 +24,17 @@ const SignupPage = () => {
       .then((response) => {
         console.log(response.data);
 
-        const token="QpwL5tke4Pnpja7X4";
-        const value=localStorage.getItem('token');
-        if(value===token){
+        const token = "QpwL5tke4Pnpja7X4";
+        const value = localStorage.getItem("token");
+        if (value === token) {
           alert("logged in successfully");
-          localStorage.removeItem('token');
+          localStorage.removeItem("token");
           history("/ProfilesettingPage");
-
-        }else{
-
+        } else {
           alert("Enter valid information ");
         }
         // you can also store the token or any other user information returned by the API in the state or local storage
-      })
-
-
-
-
+      });
   };
 
   const handleEmailChange = (event) => {
@@ -69,12 +63,19 @@ const SignupPage = () => {
         }}
       >
         <div className="d-flex justify-content-between m-2">
-          <h1 className="mt-5 mx-auto" style={{color:'white'}}>Welcome to Login page</h1>
+          <h1 className="mt-5 mx-auto" style={{ color: "white" }}>
+            Welcome to Login page
+          </h1>
         </div>
 
-        <form className="mt-5 mx-auto shadow-lg p-3 mb-5  rounded" style={{ maxWidth: "400px" }}>
+        <form
+          className="mt-5 mx-auto shadow-lg p-3 mb-5  rounded"
+          style={{ maxWidth: "400px" }}
+        >
           <div className="mb-3">
-            <label className="form-label" style={{color:'white'}}>Email address</label>
+            <label className="form-label" style={{ color: "white" }}>
+              Email address
+            </label>
             <input
               type="email"
               className="form-control"
@@ -84,7 +85,9 @@ const SignupPage = () => {
             {emailErr && <span style={{ color: "red" }}>{emailErr}</span>}
           </div>
           <div className="mb-3">
-            <label className="form-label" style={{color:'white'}}>Password</label>
+            <label className="form-label" style={{ color: "white" }}>
+              Password
+            </label>
             <input
               type="password"
               className="form-control"
@@ -104,7 +107,6 @@ const SignupPage = () => {
           <Link to="/">
             <button className="btn btn-primary m-2">Home</button>
           </Link>
-
         </form>
       </div>
     </>

@@ -6,7 +6,7 @@ const ProfilesettingPage= () => {
   const [data, setData] = useState([]);
   function getData() {
     axios
-      .get("https://reqres.in/api/register")
+      .get("https://644925ceb88a78a8f0ff1375.mockapi.io/crud-app/${id}")
       .then((res) => {
         console.log(res.data);
         setData(res.data);
@@ -45,7 +45,7 @@ localStorage.setItem("email",password);
 
             <th scope="col">Email</th>
             <th scope="col">Password</th>
-            
+
           </tr>
         </thead>
         {data.map((eachData) => {
@@ -58,7 +58,7 @@ localStorage.setItem("email",password);
                   <td>{eachData.name}</td>
                   <td>{eachData.email}</td>
                   <td>{eachData.password}</td>
-                  {/* <td>
+                  <td>
                     <Link to="/LoginPage">
                       <button
                         className="btn-success"
@@ -74,7 +74,7 @@ localStorage.setItem("email",password);
 
                       </button>
                     </Link>
-                  </td> */}
+                  </td>
                   {/* <td>
                     <button
                       className="btn-danger"
