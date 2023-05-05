@@ -6,8 +6,8 @@ function HomePage() {
     <div>
       <div className="App">
         <nav
-          className="navbar navbar-expand-lg navbar-light bg-primary"
-          style={({ color: "white" }, { padding: "25px" })}
+          className="navbar navbar-expand-lg navbar-light bg-dark"
+          style={({ color: "white" }, { padding: "20px" })}
         >
           <div className="container-fluid">
             <Link to="/">
