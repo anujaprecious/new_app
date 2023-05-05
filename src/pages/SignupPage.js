@@ -69,7 +69,7 @@ const SignupPage = () => {
   return (
     <>
     <div  style={{
-      backgroundImage: "url('nature.jpg')",
+      backgroundImage: "url('login1.jpg')",
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
@@ -94,7 +94,7 @@ const SignupPage = () => {
         </div> */}
 
         <div className="mb-3">
-          <label className="form-label">Email address</label>
+          <label className="form-label" style={{color:'white'}}>Email address</label>
           <input
             type="email"
             className="form-control"
@@ -104,7 +104,7 @@ const SignupPage = () => {
            {emailErr&&<span style={{color:'red'}}>{emailErr}</span>}
         </div>
         <div className="mb-3">
-          <label className="form-label">Password</label>
+          <label className="form-label" style={{color:'white'}}>Password</label>
           <input
             type="password"
             className="form-control"

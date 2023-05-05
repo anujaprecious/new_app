@@ -6,22 +6,21 @@ const ProfilesettingPage= () => {
   const [data, setData] = useState([]);
   function getData() {
     axios
-      .get("https://644925ceb88a78a8f0ff1375.mockapi.io/crud-app")
+      .get("https://reqres.in/api/register")
       .then((res) => {
         console.log(res.data);
         setData(res.data);
       });
   }
-  function handleDelete(id) {
-    axios
-      .delete(`https://644925ceb88a78a8f0ff1375.mockapi.io/crud-app/${id}`)
-      .then(() => {
-        getData();
-      });
-  }
-  const setToLocalStorage=(id,name,email,password)=>{
-localStorage.setItem("id",id);
-localStorage.setItem("name",name);
+  // function handleDelete(id) {
+  //   axios
+  //     .delete(`https://644925ceb88a78a8f0ff1375.mockapi.io/crud-app/${id}`)
+  //     .then(() => {
+  //       getData();
+  //     });
+  // }
+  const setToLocalStorage=(email,password)=>{
+
 localStorage.setItem("email",email);
 localStorage.setItem("email",password);
   }
@@ -43,10 +42,10 @@ localStorage.setItem("email",password);
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Name</th>
+
             <th scope="col">Email</th>
             <th scope="col">Password</th>
-            <th scope="col"></th>
+            
           </tr>
         </thead>
         {data.map((eachData) => {
@@ -59,7 +58,7 @@ localStorage.setItem("email",password);
                   <td>{eachData.name}</td>
                   <td>{eachData.email}</td>
                   <td>{eachData.password}</td>
-                  <td>
+                  {/* <td>
                     <Link to="/LoginPage">
                       <button
                         className="btn-success"
@@ -75,15 +74,15 @@ localStorage.setItem("email",password);
 
                       </button>
                     </Link>
-                  </td>
-                  <td>
+                  </td> */}
+                  {/* <td>
                     <button
                       className="btn-danger"
                       onClick={() => handleDelete(eachData.id)}
                     >
                       Delete
                     </button>
-                  </td>
+                  </td> */}
                 </tr>
               </tbody>
 

@@ -61,7 +61,7 @@ const SignupPage = () => {
     <>
       <div
         style={{
-          backgroundImage: "url('nature1.jpg')",
+          backgroundImage: "url('login1.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -69,12 +69,12 @@ const SignupPage = () => {
         }}
       >
         <div className="d-flex justify-content-between m-2">
-          <h1 className="mt-5 mx-auto">Welcome to Login page</h1>
+          <h1 className="mt-5 mx-auto" style={{color:'white'}}>Welcome to Login page</h1>
         </div>
 
         <form className="mt-5 mx-auto shadow-lg p-3 mb-5  rounded" style={{ maxWidth: "400px" }}>
           <div className="mb-3">
-            <label className="form-label">Email address</label>
+            <label className="form-label" style={{color:'white'}}>Email address</label>
             <input
               type="email"
               className="form-control"
@@ -84,7 +84,7 @@ const SignupPage = () => {
             {emailErr && <span style={{ color: "red" }}>{emailErr}</span>}
           </div>
           <div className="mb-3">
-            <label className="form-label">Password</label>
+            <label className="form-label" style={{color:'white'}}>Password</label>
             <input
               type="password"
               className="form-control"
