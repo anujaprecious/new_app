@@ -9,8 +9,6 @@ const SignupPage = () => {
   const [password, setPassword] = useState("");
   const [emailErr, setEmailErr] = useState("");
   const [passwordErr, setPasswordErr] = useState("");
-  //const [error, setError] = useState("");
-  //const [isLoggedIn, setIsLoggedIn] = useState(false);
   const history = useNavigate();
   const header = { "Access-Control-Allow-Origin": "*" };
 
@@ -171,9 +169,6 @@ const SignupPage = () => {
             Login
           </button>
 
-          {/* <Link to="/">
-            <button className="btn btn-primary m-2">Home</button>
-          </Link> */}
           <ToastContainer />
         </form>
       </div>

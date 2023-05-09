@@ -7,22 +7,15 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const SignupPage = () => {
-  // const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  //const [nameErr, setNameErr] = useState("");
   const [emailErr, setEmailErr] = useState("");
   const [passwordErr, setPasswordErr] = useState("");
   const [passwordType, setPasswordType] = useState("password");
 
-  //const [showPassword, setShowPassword] = useState(false);
-
   const history = useNavigate();
   const header = { "Access-Control-Allow-Origin": "*" };
 
-  //   const handlePasswordChange =(evnt)=>{
-  //     setPasswordInput(evnt.target.value);
-  // }
   const togglePassword = (e) => {
     e.preventDefault();
     if (passwordType === "password") {
@@ -34,9 +27,7 @@ const SignupPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // if(name<1){
-    //   setNameErr("Name should not be blank")
-    // }
+
     if (email === "") {
       setEmailErr("Email is required");
     }
@@ -60,14 +51,6 @@ const SignupPage = () => {
     }
   };
 
-  // const handleNameChange=(event)=>{
-  //   setName(event.target.value);
-  //   if(event.target.value==='')
-  //   setNameErr("please enter your name");
-  //   else{
-  //       setNameErr("");
-  //   }
-  // }
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
     if (event.target.value === "") setEmailErr("please enter your email");
@@ -159,16 +142,6 @@ const SignupPage = () => {
           className="mt-5 mx-auto shadow-lg p-3 mb-5  rounded"
           style={{ maxWidth: "400px" }}
         >
-          {/* <div className="mb-3">
-          <label className="form-label">Name</label>
-          <input
-            type="text"
-            className="form-control"
-            onChange={handleNameChange}
-          />
-          {nameErr&&<span style={{color:'red'}}>{nameErr}</span>}
-        </div> */}
-
           <div className="mb-3">
             <label className="form-label" style={{ color: "white" }}>
               Email address
@@ -186,27 +159,16 @@ const SignupPage = () => {
             <label className="form-label" style={{ color: "white" }}>
               Password
             </label>
-            {/* <input
-              type="password"
-
-              className="form-control"
-              onChange={handlePasswordChange}
-              required/>
-            {passwordErr && <span style={{ color: "red" }}>{passwordErr}</span>} */}
 
             <input
               type={passwordType}
               onChange={handlePasswordChange}
-              //value={passwordInput}
-              name="password"
               class="form-control"
               placeholder="Password"
               required
-
             />
-
+            {passwordErr && <span style={{ color: "red" }}>{passwordErr}</span>}
             <PasswordStrengthBar password={password} />
-
 
             <button
               className="btn btn-outline-primary"
@@ -224,9 +186,6 @@ const SignupPage = () => {
             Signup
           </button>
 
-          {/* <Link to="/">
-            <button className="btn btn-primary m-2">Home</button>
-          </Link> */}
           <ToastContainer />
         </form>
       </div>
