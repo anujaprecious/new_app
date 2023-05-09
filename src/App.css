@@ -82,3 +82,10 @@ input {
   margin: 8px 0;
   box-sizing: border-box;
 } */
+/* input:required:invalid {
+  border-color: #ff0000;
+} */
+input:focus:invalid {
+  border-color: #ff0000;
+  border-width: 2px;
+}

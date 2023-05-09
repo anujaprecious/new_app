@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import PasswordStrengthBar from "react-password-strength-bar";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const SignupPage = () => {
   // const [name, setName] = useState("");
@@ -9,8 +13,24 @@ const SignupPage = () => {
   //const [nameErr, setNameErr] = useState("");
   const [emailErr, setEmailErr] = useState("");
   const [passwordErr, setPasswordErr] = useState("");
+  const [passwordType, setPasswordType] = useState("password");
+
+  //const [showPassword, setShowPassword] = useState(false);
+
   const history = useNavigate();
   const header = { "Access-Control-Allow-Origin": "*" };
+
+  //   const handlePasswordChange =(evnt)=>{
+  //     setPasswordInput(evnt.target.value);
+  // }
+  const togglePassword = (e) => {
+    e.preventDefault();
+    if (passwordType === "password") {
+      setPasswordType("text");
+      return;
+    }
+    setPasswordType("password");
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,13 +38,13 @@ const SignupPage = () => {
     //   setNameErr("Name should not be blank")
     // }
     if (email === "") {
-      setEmailErr("Email should not be blank");
+      setEmailErr("Email is required");
     }
     if (password === "") {
-      setPasswordErr("Password should not be blank");
+      setPasswordErr("Password is required");
     }
     if (password !== "" && email !== "") {
-      alert("signed up successfully");
+      toast.success("signed up successfully!");
       console.log("clicked");
       axios
         .post("https://reqres.in/api/register", {
@@ -79,7 +99,7 @@ const SignupPage = () => {
         >
           <div className="container-fluid">
             <Link to="/">
-                <a className="navbar-brand" style={{ color: "white" }}>
+              <a className="navbar-brand" style={{ color: "white" }}>
                 Home
               </a>
             </Link>
@@ -128,6 +148,7 @@ const SignupPage = () => {
             </div>
           </div>
         </nav>
+
         <div className="d-flex justify-content-between m-2">
           <h1 className="mt-5 mx-auto" style={{ color: "white" }}>
             Welcome to Signup page
@@ -155,6 +176,7 @@ const SignupPage = () => {
             <input
               type="email"
               className="form-control"
+              required
               aria-describedby="emailHelp"
               onChange={handleEmailChange}
             />
@@ -164,12 +186,34 @@ const SignupPage = () => {
             <label className="form-label" style={{ color: "white" }}>
               Password
             </label>
-            <input
+            {/* <input
               type="password"
+
               className="form-control"
               onChange={handlePasswordChange}
+              required/>
+            {passwordErr && <span style={{ color: "red" }}>{passwordErr}</span>} */}
+
+            <input
+              type={passwordType}
+              onChange={handlePasswordChange}
+              //value={passwordInput}
+              name="password"
+              class="form-control"
+              placeholder="Password"
+              required
+
             />
-            {passwordErr && <span style={{ color: "red" }}>{passwordErr}</span>}
+
+            <PasswordStrengthBar password={password} />
+
+
+            <button
+              className="btn btn-outline-primary"
+              onClick={togglePassword}
+            >
+              {passwordType === "password" ? <FaEyeSlash /> : <FaEye />}
+            </button>
           </div>
 
           <button
@@ -183,6 +227,7 @@ const SignupPage = () => {
           {/* <Link to="/">
             <button className="btn btn-primary m-2">Home</button>
           </Link> */}
+          <ToastContainer />
         </form>
       </div>
     </>

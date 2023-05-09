@@ -14,33 +14,33 @@ const ContactForm = () => {
     e.preventDefault();
 
     if (email === "") {
-      setEmailErr("Email should not be blank");
+      setEmailErr("Email is required");
     }
     if (name === "") {
-      setNameErr("name should not be blank");
+      setNameErr("Name is required");
     }
     if (number === "") {
-      setNumberErr("number should not be blank");
+      setNumberErr("Number is required");
     }
   };
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
-    if (event.target.value === "") setEmailErr("please enter your email");
+    if (event.target.value === "") setEmailErr("Email is required");
     else {
       setEmailErr("");
     }
   };
   const handleNameChange = (event) => {
     setName(event.target.value);
-    if (event.target.value === "") setNameErr("please enter your password");
+    if (event.target.value === "") setNameErr("name is required");
     else {
       setNameErr("");
     }
   };
   const handleNumberChange = (event) => {
     setNumber(event.target.value);
-    if (event.target.value === "") setNumberErr("please enter your password");
+    if (event.target.value === "") setNumberErr("passwordis required");
     else {
       setNumberErr("");
     }
@@ -129,6 +129,7 @@ const ContactForm = () => {
               placeholder="Enter your full name here"
               className="form-control"
               onChange={handleNameChange}
+              required
             />
             {nameErr && <span style={{ color: "red" }}>{nameErr}</span>}
           </div>
@@ -142,6 +143,7 @@ const ContactForm = () => {
               className="form-control"
               placeholder="Enter Your company name here"
               aria-describedby="emailHelp"
+              required
             />
           </div>
 
@@ -167,6 +169,7 @@ const ContactForm = () => {
               placeholder="Enter your preferrd phone number here"
               className="form-control"
               onChange={handleNumberChange}
+              required
             />
             {numberErr && <span style={{ color: "red" }}>{numberErr}</span>}
           </div>

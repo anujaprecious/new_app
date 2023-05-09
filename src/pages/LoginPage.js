@@ -17,6 +17,13 @@ const SignupPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (email === "") {
+      setEmailErr("Email is required");
+    }
+    if (password === "") {
+      setPasswordErr("Password is required");
+    }
+
     axios
       .post("https://reqres.in/api/login", {
         email: email,
@@ -29,7 +36,7 @@ const SignupPage = () => {
         const token = "QpwL5tke4Pnpja7X4";
         const value = localStorage.getItem("token");
         if (value === token) {
-          toast("Hello, world!");
+          toast.success("Hello, world!");
 
           localStorage.removeItem("token");
           history("/Dashboardpage");
@@ -42,14 +49,14 @@ const SignupPage = () => {
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
-    if (event.target.value === "") setEmailErr("please enter your email");
+    if (event.target.value === "") setEmailErr("Email is required");
     else {
       setEmailErr("");
     }
   };
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
-    if (event.target.value === "") setPasswordErr("please enter your password");
+    if (event.target.value === "") setPasswordErr("password is required");
     else {
       setPasswordErr("");
     }
@@ -139,6 +146,7 @@ const SignupPage = () => {
               className="form-control"
               aria-describedby="emailHelp"
               onChange={handleEmailChange}
+              required
             />
             {emailErr && <span style={{ color: "red" }}>{emailErr}</span>}
           </div>
@@ -150,6 +158,7 @@ const SignupPage = () => {
               type="password"
               className="form-control"
               onChange={handlePasswordChange}
+              required
             />
             {passwordErr && <span style={{ color: "red" }}>{passwordErr}</span>}
           </div>
