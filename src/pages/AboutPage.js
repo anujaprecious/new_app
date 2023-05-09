@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Dropdown } from "react-bootstrap";
 
 function AboutPage() {
   return (
@@ -58,6 +59,18 @@ function AboutPage() {
             </ul>
           </div>
         </div>
+        <Dropdown>
+          <Dropdown.Toggle variant="success" id="dropdown-basic">
+            Show More
+          </Dropdown.Toggle>
+
+          <Dropdown.Menu>
+            <Dropdown.Item href="/Settingpage">Setting</Dropdown.Item>
+            <Dropdown.Item href="/ProfilesettingPage">
+              Profilesetting
+            </Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
       </nav>
       <h1>About</h1>
       <h2>

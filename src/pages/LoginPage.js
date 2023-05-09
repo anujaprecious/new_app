@@ -2,6 +2,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import { Dropdown } from "react-bootstrap";
 import "react-toastify/dist/ReactToastify.css";
 
 const SignupPage = () => {
@@ -124,6 +125,18 @@ const SignupPage = () => {
               </ul>
             </div>
           </div>
+          <Dropdown>
+            <Dropdown.Toggle variant="success" id="dropdown-basic">
+              Show More
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu>
+              <Dropdown.Item href="/Settingpage">Setting</Dropdown.Item>
+              <Dropdown.Item href="/ProfilesettingPage">
+                Profilesetting
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
         </nav>
         <div className="d-flex justify-content-between m-2">
           <h1 className="mt-5 mx-auto" style={{ color: "white" }}>

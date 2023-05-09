@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { Dropdown } from "react-bootstrap";
 
 const ContactForm = () => {
   const [emailErr, setEmailErr] = useState("");
@@ -111,6 +112,18 @@ const ContactForm = () => {
               </ul>
             </div>
           </div>
+          <Dropdown>
+            <Dropdown.Toggle variant="success" id="dropdown-basic">
+              Show More
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu>
+              <Dropdown.Item href="/Settingpage">Setting</Dropdown.Item>
+              <Dropdown.Item href="/ProfilesettingPage">
+                Profilesetting
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
         </nav>
 
         <h1 className="mt-5 mx-auto" style={{ color: "white" }}>
@@ -193,9 +206,7 @@ const ContactForm = () => {
             SEND MESSAGE
           </button>
         </form>
-        {/* <Link to="/">
-          <button className="btn btn-primary">Home</button>
-        </Link> */}
+        
       </div>
     </>
   );
