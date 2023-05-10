@@ -1,30 +1,31 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import PasswordStrengthBar from "react-password-strength-bar";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
+//import PasswordStrengthBar from "react-password-strength-bar";
+// import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import { Dropdown } from "react-bootstrap";
 import "react-toastify/dist/ReactToastify.css";
+import PasswordValidation from "./PasswordValidation";
 
 const SignupPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailErr, setEmailErr] = useState("");
   const [passwordErr, setPasswordErr] = useState("");
-  const [passwordType, setPasswordType] = useState("password");
+  // const [passwordType, setPasswordType] = useState("password");
 
   const history = useNavigate();
   const header = { "Access-Control-Allow-Origin": "*" };
 
-  const togglePassword = (e) => {
-    e.preventDefault();
-    if (passwordType === "password") {
-      setPasswordType("text");
-      return;
-    }
-    setPasswordType("password");
-  };
+  // const togglePassword = (e) => {
+  //   e.preventDefault();
+  //   if (passwordType === "password") {
+  //     setPasswordType("text");
+  //     return;
+  //   }
+  //   setPasswordType("password");
+  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -59,13 +60,13 @@ const SignupPage = () => {
       setEmailErr("");
     }
   };
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
-    if (event.target.value === "") setPasswordErr("please enter your password");
-    else {
-      setPasswordErr("");
-    }
-  };
+  // const handlePasswordChange = (event) => {
+  //   setPassword(event.target.value);
+  //   if (event.target.value === "") setPasswordErr("please enter your password");
+  //   else {
+  //     setPasswordErr("");
+  //   }
+  // };
   return (
     <>
       <div
@@ -174,22 +175,23 @@ const SignupPage = () => {
               Password
             </label>
 
-            <input
+            {/* <input
               type={passwordType}
               onChange={handlePasswordChange}
               class="form-control"
               placeholder="Password"
               required
             />
-            {passwordErr && <span style={{ color: "red" }}>{passwordErr}</span>}
-            <PasswordStrengthBar password={password} />
+            {passwordErr && <span style={{ color: "red" }}>{passwordErr}</span>} */}
+            {/* <PasswordStrengthBar password={password} /> */}
+            <PasswordValidation/>
 
-            <button
+            {/* <button
               className="btn btn-outline-primary"
               onClick={togglePassword}
             >
               {passwordType === "password" ? <FaEyeSlash /> : <FaEye />}
-            </button>
+            </button> */}
           </div>
 
           <button
