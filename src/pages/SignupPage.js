@@ -184,7 +184,7 @@ const SignupPage = () => {
             />
             {passwordErr && <span style={{ color: "red" }}>{passwordErr}</span>} */}
             {/* <PasswordStrengthBar password={password} /> */}
-            <PasswordValidation/>
+            <PasswordValidation />
 
             {/* <button
               className="btn btn-outline-primary"

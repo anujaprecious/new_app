@@ -41,7 +41,7 @@ const ContactForm = () => {
   };
   const handleNumberChange = (event) => {
     setNumber(event.target.value);
-    if (event.target.value === "") setNumberErr("passwordis required");
+    if (event.target.value === "") setNumberErr("password is required");
     else {
       setNumberErr("");
     }
@@ -206,7 +206,6 @@ const ContactForm = () => {
             SEND MESSAGE
           </button>
         </form>
-        
       </div>
     </>
   );
